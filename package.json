@@ -1,0 +1,22 @@
+{
+  "name": "my-data-server",
+  "version": "1.0.0",
+  "description": "Apollo Server for my-data project",
+  "main": "index.js",
+  "license": "MIT",
+  "scripts": {
+    "build": "babel index.js -d dist",
+    "start": "npm run build && node dist/index.js"
+  },
+  "dependencies": {
+    "apollo-server": "^2.3.1",
+    "apollo-server-express": "^2.3.1",
+    "cors": "^2.8.5",
+    "express": "^4.16.4",
+    "graphql": "^14.0.2"
+  },
+  "devDependencies": {
+    "babel-cli": "^6.26.0",
+    "babel-preset-env": "^1.7.0"
+  }
+}
