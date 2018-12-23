@@ -1,5 +1,7 @@
 import queries from './queries'
+import mutations from './mutations'
 
 export default {
-  Query: queries
+  Query: queries,
+  Mutation: mutations
 }
