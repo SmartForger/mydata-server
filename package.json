@@ -6,7 +6,7 @@
   "license": "MIT",
   "scripts": {
     "build": "babel index.js -d dist",
-    "start": "npm run build && node dist/index.js"
+    "start": "yarn build && node dist/index.js"
   },
   "dependencies": {
     "apollo-server": "^2.3.1",
