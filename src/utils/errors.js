@@ -29,3 +29,11 @@ export class ServerSideError extends Error {
     this.code = 500
   }
 }
+
+export class PermissionError extends Error {
+  constructor(message = '') {
+    super(message || 'You don\'t have permission')
+    this.name = 'permission_denied'
+    this.code = 403
+  }
+}

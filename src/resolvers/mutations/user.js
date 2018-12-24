@@ -1,5 +1,6 @@
 import { encode } from '../../utils/token'
 import { UnauthorizedError } from '../../utils/errors'
+import { success } from '../../utils/helpers';
 
 const signUp = async (root, args, { models }) => {
   const { User } = models
@@ -15,7 +16,7 @@ const signUp = async (root, args, { models }) => {
       status: 0
     })
 
-    return { success: true }
+    return success('User signed up successfully')
   } catch (err) {
     console.error(err.name)
     if (err.name === 'SequelizeUniqueConstraintError') {

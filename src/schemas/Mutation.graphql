@@ -4,13 +4,15 @@ type Mutation {
     lastname: String!
     username: String!
     password: String!
-  ): StatusPayload
+  ): Payload
+  login(username: String!, password: String!): TokenPayload
 
-  login(username: String, password: String): TokenPayload
+  approveUser(username: String!): Payload
 }
 
-type StatusPayload {
+type Payload {
   success: Boolean!
+  msg: String
 }
 
 type TokenPayload {

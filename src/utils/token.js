@@ -14,6 +14,8 @@ export const decode = token => {
     const decoded = jwt.verify(token, secret)
     return decoded
   } catch (err) {
-    console.log(err)
+    console.log(err.name)
   }
+
+  return { data: {} }
 }
