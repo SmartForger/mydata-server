@@ -1,5 +1,7 @@
 type User {
   firstname: String,
   lastname: String,
-  email: String
+  username: String,
+  role: String,
+  status: Int
 }

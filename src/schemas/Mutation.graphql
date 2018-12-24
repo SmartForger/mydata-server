@@ -1,3 +1,18 @@
 type Mutation {
-  createUser(firstname: String!, lastname: String!, email: String!, password: String!): User
+  signUp(
+    firstname: String!
+    lastname: String!
+    username: String!
+    password: String!
+  ): StatusPayload
+
+  login(username: String, password: String): TokenPayload
+}
+
+type StatusPayload {
+  success: Boolean!
+}
+
+type TokenPayload {
+  token: String!
 }
