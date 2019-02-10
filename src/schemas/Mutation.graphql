@@ -9,7 +9,7 @@ type Mutation {
   approveUser(username: String!): Payload
 
   createNote(title: String!, content: String!, tags: [String]): Note
-  updateNote(title: String, content: String, tags: String): Note
+  updateNote(id: Int!, title: String, content: String, tags: [String]): Note
   deleteNote(id: ID!): Note
 }
 
