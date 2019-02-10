@@ -1,0 +1,7 @@
+type Note {
+  id: Int
+  title: String
+  content: String
+  tags: [String]
+  owner: User
+}

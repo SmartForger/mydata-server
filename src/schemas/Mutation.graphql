@@ -6,8 +6,11 @@ type Mutation {
     password: String!
   ): Payload
   login(username: String!, password: String!): TokenPayload
-
   approveUser(username: String!): Payload
+
+  createNote(title: String!, content: String!, tags: [String]): Note
+  updateNote(title: String, content: String, tags: String): Note
+  deleteNote(id: ID!): Note
 }
 
 type Payload {

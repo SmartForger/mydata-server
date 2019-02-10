@@ -45,7 +45,7 @@ const login = async (root, args, { models }) => {
         throw new UnauthorizedError('Not approved by admin')
       }
 
-      const token = encode({ username, role: user.role })
+      const token = encode({ id: user.id, username, role: user.role })
 
       return { token }
     }

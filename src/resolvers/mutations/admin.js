@@ -1,5 +1,5 @@
 import { checkAdmin, success } from "../../utils/helpers";
-import { ServerSideError, NotFoundError } from "../../utils/errors";
+import { NotFoundError } from "../../utils/errors";
 
 const approveUser = async (root, { username }, { models, me }) => {
   checkAdmin(me)

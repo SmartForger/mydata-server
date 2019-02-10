@@ -1,4 +1,8 @@
 type Query {
   users: [User!]
   user(id: ID!): User
+  currentUser: User
+
+  notes: [Note!]
+  note(id: ID!): Note
 }

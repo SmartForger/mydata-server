@@ -36,6 +36,10 @@ module.exports = (sequelize, DataTypes) => {
 
   User.associate = function(models) {
     // associations can be defined here
+    User.hasMany(models.Note, {
+      foreignKey: 'ownerId',
+      as: 'notes'
+    });
   };
 
   User.prototype.comparePassword = function(password) {
