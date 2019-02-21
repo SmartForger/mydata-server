@@ -24,5 +24,7 @@ type Employee {
   Company: Company
   job_id: Int
   Job: Job
+  stage_id: Int
+  Stage: Stage
   Image: Image
 }
