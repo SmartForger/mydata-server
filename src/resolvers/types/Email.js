@@ -1,6 +1,7 @@
-import { getCompany, getStage } from './utils'
+import { getCompany, getStage, getContractsFromEmail } from './utils'
 
 export default {
   Company: getCompany,
-  Stage: getStage('stage_id')
+  Stage: getStage('stage_id'),
+  Contracts: getContractsFromEmail
 }

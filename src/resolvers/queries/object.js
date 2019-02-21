@@ -61,14 +61,12 @@ function generateOptions(models, where) {
     }
   })
 
-  console.log(generated)
-
   changeOperators(generated.where)
 
   return generated
 }
 
-export default (modelName, includeTables) => ({
+export default modelName => ({
   getObjects: async (root, args, { models, me }) => {
     const { where } = args
 

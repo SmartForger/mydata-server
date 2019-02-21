@@ -41,5 +41,31 @@ export default modelName => ({
       console.log(err)
       throw new ServerSideError("Cannot update object")
     }
+  },
+
+  linkObject: (targetModel) => async (root, args, { models }) => {
+    const { from, to, remove } = args
+
+    try {
+      const obj = await models[modelName].findOne({
+        where: { id: from },
+        include: [{
+          model: models[targetModel],
+          as: targetModel,
+          attributes: ["id"]
+        }]
+      })
+
+      if (remove) {
+        await obj[`remove${targetModel}`].apply(obj, [to]);
+      } else {
+        await obj[`add${targetModel}`].apply(obj, [to]);
+      }
+
+      return obj
+    } catch (err) {
+      console.log(err);
+      throw new ServerSideError("Cannot link objects")
+    }
   }
 })

@@ -27,13 +27,15 @@ const {
 const {
   createObject: createContract,
   deleteObject: deleteContract,
-  updateObject: updateContract
+  updateObject: updateContract,
+  linkObject: linkContactsEmails
 } = objectMutation('Contracts')
 
 const {
   createObject: createEmail,
   deleteObject: deleteEmail,
-  updateObject: updateEmail
+  updateObject: updateEmail,
+  linkObject: linkEmailsContacts
 } = objectMutation('Emails')
 
 const {
@@ -100,9 +102,11 @@ export default {
   createContract,
   deleteContract,
   updateContract,
+  linkContractsEmails: linkContactsEmails('Emails'),
   createEmail,
   deleteEmail,
   updateEmail,
+  linkEmailsContracts: linkEmailsContacts('Contacts'),
   createEmployee,
   deleteEmployee,
   updateEmployee,

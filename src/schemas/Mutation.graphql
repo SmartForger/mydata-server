@@ -90,6 +90,11 @@ type Mutation {
     comments: String
     company_id: Int
   ): Contract
+  linkContractsEmails(
+    from: Int!
+    to: Int!
+    remove: Boolean
+  ): Contract
   deleteContract(id: ID!): Contract
   createEmail(
     subject: String
@@ -107,6 +112,11 @@ type Mutation {
     body: String
     company_id: Int
     stage_id: Int
+  ): Email
+  linkEmailsContracts(
+    from: Int!
+    to: Int!
+    remove: Boolean
   ): Email
   deleteEmail(id: ID!): Email
   createEmployee(

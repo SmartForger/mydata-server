@@ -28,3 +28,39 @@ export const getEmployee = async ({ employee_id }, args, { models }) =>
   models.Employees.findOne({
     where: { id: employee_id }
   })
+
+export const getJob = async ({ job_id }, args, { models }) =>
+  models.Jobs.findOne({
+    where: { id: job_id }
+  })
+
+export const getContract = async ({ contract_id }, args, { models }) =>
+  models.Contracts.findOne({
+    where: { id: contract_id }
+  })
+
+export const getEmailsFromContract = async ({ id }, args, { models }) =>
+  models.Emails.findAll({
+    where: {
+      "$Contracts.id$": id
+    },
+    include: [
+      {
+        model: models.Contracts,
+        as: "Contracts"
+      }
+    ]
+  })
+
+export const getContractsFromEmail = async ({ id }, args, { models }) =>
+  models.Contracts.findAll({
+    where: {
+      "$Emails.id$": id
+    },
+    include: [
+      {
+        model: models.Emails,
+        as: "Emails"
+      }
+    ]
+  })

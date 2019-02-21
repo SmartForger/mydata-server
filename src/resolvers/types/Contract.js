@@ -1,5 +1,6 @@
-import { getCompany } from './utils'
+import { getCompany, getEmailsFromContract } from './utils'
 
 export default {
-  Company: getCompany
+  Company: getCompany,
+  Emails: getEmailsFromContract
 }
