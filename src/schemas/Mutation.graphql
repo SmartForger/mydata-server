@@ -139,6 +139,7 @@ type Mutation {
     start_date: Date
     emergency_contact: String
     emergency_contact_phone: String
+    account_status: Boolean
     company_id: Int
     job_id: Int
   ): Employee
@@ -163,6 +164,7 @@ type Mutation {
     start_date: Date
     emergency_contact: String
     emergency_contact_phone: String
+    account_status: Boolean
     company_id: Int
     job_id: Int
   ): Employee

@@ -85,6 +85,10 @@ module.exports = {
         type: Sequelize.STRING,
         field: "emergency_contact_phone"
       },
+      account_status: {
+        type: Sequelize.BOOLEAN,
+        field: "account_status"
+      },
       created_at: {
         type: Sequelize.DATE,
         field: "created_at",

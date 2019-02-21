@@ -19,6 +19,7 @@ type Employee {
   start_date: Date
   emergency_contact: String
   emergency_contact_phone: String
+  account_status: Boolean
   company_id: Int
   Company: Company
   job_id: Int
