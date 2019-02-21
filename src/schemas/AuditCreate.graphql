@@ -1,0 +1,9 @@
+type AuditCreate {
+  id: Int
+  action: String
+  details: String
+  user_id: Int
+  User: User
+  company_id: Int
+  Company: Company
+}

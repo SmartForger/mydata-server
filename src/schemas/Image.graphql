@@ -1,0 +1,9 @@
+type Image {
+  id: Int
+  key: String
+  filename: String
+  file_type: String
+  size: Int
+  employee_id: Int
+  Employee: Employee
+}

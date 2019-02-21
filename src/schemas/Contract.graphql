@@ -1,0 +1,21 @@
+type Contract {
+  id: Int
+  title: String
+  prime: String
+  program_manager: String
+  program_manager_phone: String
+  program_manager_email: String
+  contract_number: String
+  sub_contract_number: String
+  contract_administrator: String
+  contract_administrator_phone: String
+  contract_administrator_email: String
+  security_officer: String
+  security_officer_phone: String
+  security_officer_email: String
+  comments: String
+  company_id: Int
+  Company: Company
+  Emails: [Email]
+  Jobs: [Job]
+}

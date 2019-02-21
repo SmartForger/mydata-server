@@ -1,16 +1,272 @@
 type Mutation {
-  signUp(
-    firstname: String!
-    lastname: String!
-    username: String!
-    password: String!
-  ): Payload
-  login(username: String!, password: String!): TokenPayload
-  approveUser(username: String!): Payload
-
-  createNote(title: String!, content: String!, tags: [String]): Note
-  updateNote(id: Int!, title: String, content: String, tags: [String]): Note
-  deleteNote(id: ID!): Note
+  createAttachment(
+    key: String
+    filename: String
+    file_type: String
+    size: Int
+    email_id: Int
+    company_id: Int
+  ): Attachment
+  updateAttachment(
+    id: Int!
+    key: String
+    filename: String
+    file_type: String
+    size: Int
+    email_id: Int
+    company_id: Int
+  ): Attachment
+  deleteAttachment(id: ID!): Attachment
+  createAuditCreate(
+    action: String
+    details: String
+    user_id: Int
+    company_id: Int
+  ): AuditCreate
+  updateAuditCreate(
+    id: Int!
+    action: String
+    details: String
+    user_id: Int
+    company_id: Int
+  ): AuditCreate
+  deleteAuditCreate(id: ID!): AuditCreate
+  createAuditStage(
+    employee_id: Int
+    company_id: Int
+    from_stage_id: Int
+    to_stage_id: Int
+    user_id: Int
+  ): AuditStage
+  updateAuditStage(
+    id: Int!
+    employee_id: Int
+    company_id: Int
+    from_stage_id: Int
+    to_stage_id: Int
+    user_id: Int
+  ): AuditStage
+  deleteAuditStage(id: ID!): AuditStage
+  createCompany(
+    name: String
+  ): Company
+  updateCompany(
+    id: Int!
+    name: String
+  ): Company
+  deleteCompany(id: ID!): Company
+  createContract(
+    title: String
+    prime: String
+    program_manager: String
+    program_manager_phone: String
+    program_manager_email: String
+    contract_number: String
+    sub_contract_number: String
+    contract_administrator: String
+    contract_administrator_phone: String
+    contract_administrator_email: String
+    security_officer: String
+    security_officer_phone: String
+    security_officer_email: String
+    comments: String
+    company_id: Int
+  ): Contract
+  updateContract(
+    id: Int!
+    title: String
+    prime: String
+    program_manager: String
+    program_manager_phone: String
+    program_manager_email: String
+    contract_number: String
+    sub_contract_number: String
+    contract_administrator: String
+    contract_administrator_phone: String
+    contract_administrator_email: String
+    security_officer: String
+    security_officer_phone: String
+    security_officer_email: String
+    comments: String
+    company_id: Int
+  ): Contract
+  deleteContract(id: ID!): Contract
+  createEmail(
+    subject: String
+    fromEmail: String
+    toEmail: String
+    body: String
+    company_id: Int
+    stage_id: Int
+  ): Email
+  updateEmail(
+    id: Int!
+    subject: String
+    fromEmail: String
+    toEmail: String
+    body: String
+    company_id: Int
+    stage_id: Int
+  ): Email
+  deleteEmail(id: ID!): Email
+  createEmployee(
+    name_first: String
+    name_middle: String
+    name_last: String
+    resume: String
+    mobile_phone: String
+    work_phone: String
+    work_email: String
+    personal_email: String
+    street: String
+    city: String
+    state: String
+    zip: String
+    resource_manager: String
+    program_manager: String
+    salary: String
+    manager: String
+    start_date: Date
+    emergency_contact: String
+    emergency_contact_phone: String
+    company_id: Int
+    job_id: Int
+  ): Employee
+  updateEmployee(
+    id: Int!
+    name_first: String
+    name_middle: String
+    name_last: String
+    resume: String
+    mobile_phone: String
+    work_phone: String
+    work_email: String
+    personal_email: String
+    street: String
+    city: String
+    state: String
+    zip: String
+    resource_manager: String
+    program_manager: String
+    salary: String
+    manager: String
+    start_date: Date
+    emergency_contact: String
+    emergency_contact_phone: String
+    company_id: Int
+    job_id: Int
+  ): Employee
+  deleteEmployee(id: ID!): Employee
+  createEvent(
+    note: String
+    resume: String
+    mobile_phone: String
+    salary: String
+    manager: String
+  ): Event
+  updateEvent(
+    id: Int!
+    note: String
+    resume: String
+    mobile_phone: String
+    salary: String
+    manager: String
+  ): Event
+  deleteEvent(id: ID!): Event
+  createGoal(
+    goal: String
+    due_date: String
+    complete: Boolean
+  ): Goal
+  updateGoal(
+    id: Int!
+    goal: String
+    due_date: String
+    complete: Boolean
+  ): Goal
+  deleteGoal(id: ID!): Goal
+  createImage(
+    key: String
+    filename: String
+    file_type: String
+    size: Int
+    employee_id: Int
+  ): Image
+  updateImage(
+    id: Int!
+    key: String
+    filename: String
+    file_type: String
+    size: Int
+    employee_id: Int
+  ): Image
+  deleteImage(id: ID!): Image
+  createJob(
+    title: String
+    location: String
+    location_nickname: String
+    security_clearance: String
+    required_skills: String
+    desired_skills: String
+    description: String
+    company_id: Int
+    contract_id: Int
+  ): Job
+  updateJob(
+    id: Int!
+    title: String
+    location: String
+    location_nickname: String
+    security_clearance: String
+    required_skills: String
+    desired_skills: String
+    description: String
+    company_id: Int
+    contract_id: Int
+  ): Job
+  deleteJob(id: ID!): Job
+  createRole(
+    title: String
+    company_id: Int
+  ): Role
+  updateRole(
+    id: Int!
+    title: String
+    company_id: Int
+  ): Role
+  deleteRole(id: ID!): Role
+  createStage(
+    name: String
+    order: Int
+    company_id: Int
+  ): Stage
+  updateStage(
+    id: Int!
+    name: String
+    order: Int
+    company_id: Int
+  ): Stage
+  deleteStage(id: ID!): Stage
+  createUser(
+    cog_id: String
+    pool_id: String
+    email: String
+    img: String
+    name: String
+    role_id: Int
+    company_id: Int
+  ): User
+  updateUser(
+    id: Int!
+    cog_id: String
+    pool_id: String
+    email: String
+    img: String
+    name: String
+    role_id: Int
+    company_id: Int
+  ): User
+  deleteUser(id: ID!): User
 }
 
 type Payload {

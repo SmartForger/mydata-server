@@ -4,5 +4,5 @@ const getOwner = async ({ ownerId }, args, { models }) =>
   })
 
 export default {
-  owner: getOwner
+  Owner: getOwner
 }

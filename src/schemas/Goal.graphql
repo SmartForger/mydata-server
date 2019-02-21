@@ -1,0 +1,6 @@
+type Goal {
+  id: Int
+  goal: String
+  due_date: String
+  complete: Boolean
+}

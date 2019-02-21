@@ -1,8 +1,33 @@
 type Query {
-  users: [User!]
-  user(id: ID!): User
-  currentUser: User
-
-  notes: [Note!]
-  note(id: ID!): Note
+  getAttachments(where: SequelizeJSON): [Attachment]
+  getAttachment(id: Int): Attachment
+  getAuditCreates(where: SequelizeJSON): [AuditCreate]
+  getAuditCreate(id: Int): AuditCreate
+  getAuditStages(where: SequelizeJSON): [AuditCreate]
+  getAuditStage(id: Int): AuditCreate
+  getCompanies(where: SequelizeJSON): [Company]
+  getCompany(id: Int): Company
+  getContracts(where: SequelizeJSON): [Contract]
+  getContract(id: Int): Contract
+  getEmails(where: SequelizeJSON): [Email]
+  getEmail(id: Int): Email
+  getEmployees(where: SequelizeJSON): [Employee]
+  getEmployee(id: Int): Employee
+  getEvents(where: SequelizeJSON): [Event]
+  getEvent(id: Int): Event
+  getGoals(where: SequelizeJSON): [Goal]
+  getGoal(id: Int): Goal
+  getImages(where: SequelizeJSON): [Image]
+  getImage(id: Int): Image
+  getJobs(where: SequelizeJSON): [Job]
+  getJob(id: Int): Job
+  getRoles(where: SequelizeJSON): [Role]
+  getRole(id: Int): Role
+  getStages(where: SequelizeJSON): [Stage]
+  getStage(id: Int): Stage
+  getUsers(where: SequelizeJSON): [User]
+  getUser(id: Int): User
 }
+
+scalar SequelizeJSON
+scalar Date

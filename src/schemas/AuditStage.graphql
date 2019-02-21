@@ -1,0 +1,13 @@
+type AuditStage {
+  id: Int
+  employee_id: Int
+  Employee: Employee
+  company_id: Int
+  Company: Company
+  from_stage_id: Int
+  FromStage: Stage
+  to_stage_id: Int
+  ToStage: Stage
+  user_id: Int
+  User: User
+}
