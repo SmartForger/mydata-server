@@ -7,7 +7,6 @@ import Company from "./Company.graphql";
 import Contract from "./Contract.graphql";
 import Email from "./Email.graphql";
 import Employee from "./Employee.graphql";
-import Event from "./Event.graphql";
 import Goal from "./Goal.graphql";
 import Image from "./Image.graphql";
 import Job from "./Job.graphql";
@@ -25,7 +24,6 @@ export default [
   Contract,
   Email,
   Employee,
-  Event,
   Goal,
   Image,
   Job,

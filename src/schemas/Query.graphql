@@ -13,8 +13,6 @@ type Query {
   getEmail(id: Int): Email
   getEmployees(where: SequelizeJSON): [Employee]
   getEmployee(id: Int): Employee
-  getEvents(where: SequelizeJSON): [Event]
-  getEvent(id: Int): Event
   getGoals(where: SequelizeJSON): [Goal]
   getGoal(id: Int): Goal
   getImages(where: SequelizeJSON): [Image]

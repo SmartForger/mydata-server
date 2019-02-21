@@ -1,8 +1,0 @@
-type Event {
-  id:  Int
-  note: String
-  resume: String
-  mobile_phone: String
-  salary: String
-  manager: String
-}
