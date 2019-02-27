@@ -45,12 +45,6 @@ const {
 } = objectMutation('Employees')
 
 const {
-  createObject: createEvent,
-  deleteObject: deleteEvent,
-  updateObject: updateEvent
-} = objectMutation('Events')
-
-const {
   createObject: createGoal,
   deleteObject: deleteGoal,
   updateObject: updateGoal
@@ -110,9 +104,6 @@ export default {
   createEmployee,
   deleteEmployee,
   updateEmployee,
-  createEvent,
-  deleteEvent,
-  updateEvent,
   createGoal,
   deleteGoal,
   updateGoal,

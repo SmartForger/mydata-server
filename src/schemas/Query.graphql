@@ -3,8 +3,8 @@ type Query {
   getAttachment(id: Int): Attachment
   getAuditCreates(where: SequelizeJSON): [AuditCreate]
   getAuditCreate(id: Int): AuditCreate
-  getAuditStages(where: SequelizeJSON): [AuditCreate]
-  getAuditStage(id: Int): AuditCreate
+  getAuditStages(where: SequelizeJSON): [AuditStage]
+  getAuditStage(id: Int): AuditStage
   getCompanies(where: SequelizeJSON): [Company]
   getCompany(id: Int): Company
   getContracts(where: SequelizeJSON): [Contract]

@@ -36,11 +36,6 @@ const {
 } = objectQuery('Employees')
 
 const {
-  getObjects: getEvents,
-  getObject: getEvent
-} = objectQuery('Events')
-
-const {
   getObjects: getGoals,
   getObject: getGoal
 } = objectQuery('Goals')
@@ -85,8 +80,6 @@ export default {
   getEmail,
   getEmployees,
   getEmployee,
-  getEvents,
-  getEvent,
   getGoals,
   getGoal,
   getImages,
