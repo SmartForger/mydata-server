@@ -1,9 +1,0 @@
-type Stage {
-  id: Int
-  name: String
-  order: Int
-  company_id: Int
-  Company: Company
-  Emails: [Email]
-  Employees: [Employee]
-}

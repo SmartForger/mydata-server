@@ -1,4 +1,0 @@
-type Company {
-  id: Int
-  name: String
-}

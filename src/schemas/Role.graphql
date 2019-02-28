@@ -1,6 +1,0 @@
-type Role {
-  id: Int
-  title: String
-  company_id: Int
-  Company: Company
-}

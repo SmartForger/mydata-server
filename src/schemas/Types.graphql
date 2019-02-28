@@ -1,0 +1,19 @@
+type User {
+  id: Int
+  email: String
+  name: String
+  role: String
+}
+
+type Category {
+  id: Int
+  name: String
+  slug: String
+}
+
+type Post {
+  id: Int
+  name: String
+  slug: String
+  tags: [String]
+}
