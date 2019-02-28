@@ -1,5 +1,7 @@
+import Joi from "joi";
 import { encode } from "../../utils/token";
 import { UnauthorizedError } from "../../utils/errors";
+import { registerSchema } from "../validations/auth";
 
 const sendUser = user => {
   const userData = {
@@ -39,6 +41,7 @@ const login = async (_, args, { models }) => {
 
 const register = async (_, args, { models }) => {
   try {
+    await Joi.validate(args, registerSchema);
     const user = await models.User.create(args);
     return sendUser(user);
   } catch (err) {
