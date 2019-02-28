@@ -10,3 +10,4 @@
 .env.production.local
 
 *.log
+package-lock.json

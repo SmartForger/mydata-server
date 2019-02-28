@@ -4,7 +4,7 @@ import cors from 'cors'
 import { ApolloServer } from 'apollo-server-express'
 import "@babel/polyfill"
 
-import models from '@kodydoherty/icy-deliver-pro-api/models'
+import models from '../models'
 
 import schemas from './schemas'
 import resolvers from './resolvers'

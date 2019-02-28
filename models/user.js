@@ -21,10 +21,9 @@ function encryptPasswordIfChanged(user, options) {
 
 module.exports = (sequelize, DataTypes) => {
   const User = sequelize.define('User', {
-    firstname: DataTypes.STRING,
-    lastname: DataTypes.STRING,
     username: DataTypes.STRING,
     password: DataTypes.STRING,
+    name: DataTypes.STRING,
     role: DataTypes.STRING,
     status: DataTypes.INTEGER
   }, {
@@ -36,10 +35,6 @@ module.exports = (sequelize, DataTypes) => {
 
   User.associate = function(models) {
     // associations can be defined here
-    User.hasMany(models.Note, {
-      foreignKey: 'ownerId',
-      as: 'notes'
-    });
   };
 
   User.prototype.comparePassword = function(password) {

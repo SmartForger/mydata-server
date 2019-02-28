@@ -11,7 +11,6 @@
     "dev": "concurrently \"npm run watch\" \"nodemon dist/index.js\""
   },
   "dependencies": {
-    "@kodydoherty/icy-deliver-pro-api": "^1.0.38",
     "apollo-server": "^2.3.1",
     "apollo-server-express": "^2.3.1",
     "bcrypt": "^3.0.3",
