@@ -1,14 +1,29 @@
+import Joi from "joi";
+import { checkUser } from "../../utils/helpers";
 import { ServerSideError } from "../../utils/errors";
 
 export default modelName => ({
-  createObject: async (root, args, { models, me }) => {
-    return models[modelName].create(args);
+  createObject: options => async (root, args, { models, me }) => {
+    try {
+      checkUser(me, options);
+      if (options.schema) {
+        await Joi.validate(args, options.schema);
+      }
+
+      return models[modelName].create(args);
+    } catch (err) {
+      throw err;
+    }
   },
 
-  deleteObject: async (root, args, { models }) => {
-    const { id } = args;
-
+  deleteObject: options => async (root, args, { models, me }) => {
     try {
+      checkUser(me, options);
+      if (options.schema) {
+        await Joi.validate(args, options.schema);
+      }
+
+      const { id } = args;
       const obj = await models[modelName].findOne({
         where: { id }
       });
@@ -17,15 +32,18 @@ export default modelName => ({
 
       return obj;
     } catch (err) {
-      console.log(err);
-      throw new ServerSideError("Cannot delete object");
+      throw err;
     }
   },
 
-  updateObject: async (root, args, { models }) => {
-    const { id } = args;
-
+  updateObject: options => async (root, args, { models, me }) => {
     try {
+      checkUser(me, options);
+      if (options.schema) {
+        await Joi.validate(args, options.schema);
+      }
+
+      const { id } = args;
       const obj = await models[modelName].findOne({
         where: { id }
       });
@@ -38,15 +56,18 @@ export default modelName => ({
 
       throw new ServerSideError("Cannot find object");
     } catch (err) {
-      console.log(err);
-      throw new ServerSideError("Cannot update object");
+      throw err;
     }
   },
 
-  linkObject: targetModel => async (root, args, { models }) => {
-    const { from, to, remove } = args;
-
+  linkObject: (targetModel, options) => async (root, args, { models, me }) => {
     try {
+      checkUser(me, options);
+      if (options.schema) {
+        await Joi.validate(args, options.schema);
+      }
+
+      const { from, to, remove } = args;
       const obj = await models[modelName].findOne({
         where: { id: from },
         include: [
@@ -66,8 +87,7 @@ export default modelName => ({
 
       return obj;
     } catch (err) {
-      console.log(err);
-      throw new ServerSideError("Cannot link objects");
+      throw err;
     }
   }
 });

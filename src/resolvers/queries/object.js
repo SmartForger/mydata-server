@@ -2,21 +2,8 @@ import { Op } from "sequelize";
 import { checkUser } from "../../utils/helpers";
 
 const includeFields = {
-  Email: "Emails",
-  Emails: "Emails",
-  Company: "Companies",
-  Role: "Roles",
-  User: "Users",
-  Stage: "Stages",
-  FromStage: "Stages",
-  Job: "Jobs",
-  ToStage: "Stages",
-  Jobs: "Jobs",
-  Contracts: "Contracts",
-  Attachments: "Attachments",
-  Image: "Image",
-  Employee: "Employees",
-  Employees: "Employees"
+  Post: "Post",
+  Category: "Category"
 };
 
 function changeOperators(where) {
@@ -70,15 +57,19 @@ function generateOptions(models, where) {
 export default modelName => ({
   getObjects: options => async (root, args, { models, me }) => {
     checkUser(me, options);
+    if (options && options.schema) {
+      await Joi.validate(args, options.schema);
+    }
 
     const { where } = args;
-
     const params = where ? generateOptions(models, where) : {};
-
     return models[modelName].findAll(params);
   },
   getObject: options => async (root, { id }, { models, me }) => {
     checkUser(me, options);
+    if (options && options.schema) {
+      await Joi.validate(args, options.schema);
+    }
 
     return models[modelName].findOne({
       where: { id }

@@ -1,6 +1,8 @@
 type Query {
   getUsers(where: SequelizeJSON): [User]
-  getUser(id: Int): User
+  getUser(id: Int!): User
+  getPosts(where: SequelizeJSON): [Post]
+  getPost(id: Int!): Post
 }
 
 scalar SequelizeJSON

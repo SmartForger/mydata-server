@@ -1,6 +1,27 @@
 type Mutation {
   login(email: String!, password: String!): LoginResult
   register(email: String!, password: String!, name: String!): LoginResult
+
+  createPost(
+    title: String!
+    content: String!
+    slug: String!
+    category_id: Int
+    tags: [String]
+  ): Post
+  updatePost(
+    id: Int!
+    title: String
+    content: String
+    slug: String
+    category_id: Int
+    tags: [String]
+  ): Post
+  deletePost(id: Int!): Post
+
+  createCategory(name: String!, slug: String!): Category
+  updateCategory(id: Int!, name: String, slug: String): Category
+  deleteCategory(id: Int!): Category
 }
 
 type LoginResult {

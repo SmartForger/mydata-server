@@ -1,29 +1,19 @@
 import auth from "./auth";
-// import objectMutation from "./object";
+import objectMutation from "./object";
+import postSchema from "../validations/post";
+import categorySchema from "../validations/category";
 
-// const {
-//   createObject: createAttachment,
-//   deleteObject: deleteAttachment,
-//   updateObject: updateAttachment
-// } = objectMutation('Attachments')
+const {
+  createObject: createPost,
+  deleteObject: deletePost,
+  updateObject: updatePost
+} = objectMutation("Post");
 
-// const {
-//   createObject: createAuditCreate,
-//   deleteObject: deleteAuditCreate,
-//   updateObject: updateAuditCreate
-// } = objectMutation('AuditCreates')
-
-// const {
-//   createObject: createAuditStage,
-//   deleteObject: deleteAuditStage,
-//   updateObject: updateAuditStage
-// } = objectMutation('AuditStages')
-
-// const {
-//   createObject: createCompany,
-//   deleteObject: deleteCompany,
-//   updateObject: updateCompany
-// } = objectMutation('Companies')
+const {
+  createObject: createCategory,
+  deleteObject: deleteCategory,
+  updateObject: updateCategory
+} = objectMutation("Category");
 
 // const {
 //   createObject: createContract,
@@ -32,96 +22,14 @@ import auth from "./auth";
 //   linkObject: linkContactsEmails
 // } = objectMutation('Contracts')
 
-// const {
-//   createObject: createEmail,
-//   deleteObject: deleteEmail,
-//   updateObject: updateEmail,
-//   linkObject: linkEmailsContacts
-// } = objectMutation('Emails')
-
-// const {
-//   createObject: createEmployee,
-//   deleteObject: deleteEmployee,
-//   updateObject: updateEmployee
-// } = objectMutation('Employees')
-
-// const {
-//   createObject: createGoal,
-//   deleteObject: deleteGoal,
-//   updateObject: updateGoal
-// } = objectMutation('Goals')
-
-// const {
-//   createObject: createImage,
-//   deleteObject: deleteImage,
-//   updateObject: updateImage
-// } = objectMutation('Images')
-
-// const {
-//   createObject: createJob,
-//   deleteObject: deleteJob,
-//   updateObject: updateJob
-// } = objectMutation('Jobs')
-
-// const {
-//   createObject: createRole,
-//   deleteObject: deleteRole,
-//   updateObject: updateRole
-// } = objectMutation('Roles')
-
-// const {
-//   createObject: createStage,
-//   deleteObject: deleteStage,
-//   updateObject: updateStage
-// } = objectMutation('Stages')
-
-// const {
-//   createObject: createUser,
-//   deleteObject: deleteUser,
-//   updateObject: updateUser
-// } = objectMutation('Users')
-
 export default {
-  ...auth
-  // createAttachment,
-  // deleteAttachment,
-  // updateAttachment,
-  // createAuditCreate,
-  // deleteAuditCreate,
-  // updateAuditCreate,
-  // createAuditStage,
-  // deleteAuditStage,
-  // updateAuditStage,
-  // createCompany,
-  // deleteCompany,
-  // updateCompany,
-  // createContract,
-  // deleteContract,
-  // updateContract,
+  ...auth,
+  createPost: createPost({ auth: true, schema: postSchema }),
+  deletePost: deletePost({ auth: true }),
+  updatePost: updatePost({ auth: true, schema: postSchema }),
+  createCategory: createCategory({ auth: true, schema: categorySchema }),
+  deleteCategory: deleteCategory({ auth: true }),
+  updateCategory: updateCategory({ auth: true, schema: categorySchema })
   // linkContractsEmails: linkContactsEmails('Emails'),
-  // createEmail,
-  // deleteEmail,
-  // updateEmail,
-  // linkEmailsContracts: linkEmailsContacts('Contacts'),
-  // createEmployee,
-  // deleteEmployee,
-  // updateEmployee,
-  // createGoal,
-  // deleteGoal,
-  // updateGoal,
-  // createImage,
-  // deleteImage,
-  // updateImage,
-  // createJob,
-  // deleteJob,
-  // updateJob,
-  // createRole,
-  // deleteRole,
-  // updateRole,
-  // createStage,
-  // deleteStage,
-  // updateStage,
-  // createUser,
-  // deleteUser,
-  // updateUser
+  // linkEmailsContracts: linkEmailsContacts('Contacts')
 };

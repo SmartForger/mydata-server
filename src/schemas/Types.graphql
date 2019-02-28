@@ -13,7 +13,9 @@ type Category {
 
 type Post {
   id: Int
-  name: String
+  title: String
+  content: String
   slug: String
   tags: [String]
+  Category: Category
 }
