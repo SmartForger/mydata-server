@@ -6,16 +6,18 @@ type Mutation {
     title: String!
     content: String!
     slug: String!
-    category_id: Int
     tags: [String]
+    category_id: Int
+    user_id: Int
   ): Post
   updatePost(
     id: Int!
     title: String
     content: String
     slug: String
-    category_id: Int
     tags: [String]
+    category_id: Int
+    user_id: Int
   ): Post
   deletePost(id: Int!): Post
 

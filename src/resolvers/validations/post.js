@@ -6,5 +6,6 @@ export default Joi.object().keys({
   content: Joi.string().regex(/^.+$/, "required"),
   slug: Joi.string().regex(/^[\w\d\-\_]+$/, "slug"),
   tags: Joi.array().items(Joi.string()),
-  category_id: Joi.number().integer().min(0)
+  category_id: Joi.number().integer().min(0),
+  user_id: Joi.number().integer().min(0)
 });

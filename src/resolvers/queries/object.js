@@ -4,7 +4,8 @@ import { checkUser } from "../../utils/helpers";
 const includeFields = {
   Post: "Post",
   Posts: "Post",
-  Category: "Category"
+  Category: "Category",
+  User: "User"
 };
 
 function changeOperators(where) {

@@ -3,6 +3,7 @@ type User {
   email: String
   name: String
   role: String
+  Posts: [Post]
 }
 
 type Category {
@@ -19,4 +20,5 @@ type Post {
   slug: String
   tags: [String]
   Category: Category
+  User: User
 }

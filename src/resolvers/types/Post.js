@@ -1,8 +1,6 @@
-const getCategory = async ({ category_id }, args, { models }) =>
-  models.Category.findOne({
-    where: { id: category_id }
-  })
+import { getCategory, getUser } from "./utils";
 
 export default {
-  Category: getCategory
-}
+  Category: getCategory,
+  User: getUser
+};
