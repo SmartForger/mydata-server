@@ -3,6 +3,8 @@ type Query {
   getUser(id: Int!): User
   getPosts(where: SequelizeJSON): [Post]
   getPost(id: Int!): Post
+  getCategories(where: SequelizeJSON): [Category]
+  getCategory(id: Int!): Category
 }
 
 scalar SequelizeJSON

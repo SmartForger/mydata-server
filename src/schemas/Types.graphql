@@ -9,6 +9,7 @@ type Category {
   id: Int
   name: String
   slug: String
+  Posts: [Post]
 }
 
 type Post {

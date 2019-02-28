@@ -3,6 +3,7 @@ import { checkUser } from "../../utils/helpers";
 
 const includeFields = {
   Post: "Post",
+  Posts: "Post",
   Category: "Category"
 };
 
