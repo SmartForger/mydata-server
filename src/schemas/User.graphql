@@ -1,12 +1,6 @@
 type User {
-  id: String,
-  cog_id: String,
-  pool_id: String,
-  email: String,
-  img: String,
+  id: Int
+  email: String
   name: String
-  role_id: Int
-  Role: Role
-  company_id: Int
-  Company: Company
+  role: String
 }

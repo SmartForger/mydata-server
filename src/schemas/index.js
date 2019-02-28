@@ -1,5 +1,6 @@
 import Query from "./Query.graphql";
-// import Mutation from "./Mutation.graphql";
+import Mutation from "./Mutation.graphql";
+import User from "./User.graphql";
 // import Attachment from "./Attachment.graphql";
 // import AuditCreate from "./AuditCreate.graphql";
 // import AuditStage from "./AuditStage.graphql";
@@ -12,11 +13,11 @@ import Query from "./Query.graphql";
 // import Job from "./Job.graphql";
 // import Role from "./Role.graphql";
 // import Stage from "./Stage.graphql";
-// import User from "./User.graphql";
 
 export default [
   Query,
-  // Mutation,
+  Mutation,
+  User
   // Attachment,
   // AuditCreate,
   // AuditStage,
@@ -29,5 +30,4 @@ export default [
   // Job,
   // Role,
   // Stage,
-  // User
 ];
