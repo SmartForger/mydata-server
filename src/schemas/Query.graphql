@@ -23,9 +23,8 @@ type Query {
   # getRole(id: Int): Role
   # getStages(where: SequelizeJSON): [Stage]
   # getStage(id: Int): Stage
-  # getUsers(where: SequelizeJSON): [User]
-  # getUser(id: Int): User
-  hello: String
+  getUsers(where: SequelizeJSON): [User]
+  getUser(id: Int): User
 }
 
 scalar SequelizeJSON

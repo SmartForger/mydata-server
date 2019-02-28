@@ -1,4 +1,5 @@
-import { Op } from "sequelize"
+import { Op } from "sequelize";
+import { checkUser } from "../../utils/helpers";
 
 const includeFields = {
   Email: "Emails",
@@ -16,28 +17,28 @@ const includeFields = {
   Image: "Image",
   Employee: "Employees",
   Employees: "Employees"
-}
+};
 
 function changeOperators(where) {
-  const keys = Object.keys(where)
+  const keys = Object.keys(where);
   keys.forEach(key => {
     if (typeof where[key] !== "string" && Object.keys(where[key]).length > 0) {
-      changeOperators(where[key])
+      changeOperators(where[key]);
     }
 
     if (key.startsWith("__")) {
-      where[Op[key.substr(2)]] = where[key]
-      delete where[key]
+      where[Op[key.substr(2)]] = where[key];
+      delete where[key];
     }
-  })
+  });
 }
 
 function generateOptions(models, where) {
-  const keys = Object.keys(where)
+  const keys = Object.keys(where);
   const generated = {
     where: {},
     include: []
-  }
+  };
 
   keys.forEach(key => {
     if (
@@ -45,38 +46,42 @@ function generateOptions(models, where) {
       typeof where[key] === "object" &&
       Object.keys(where[key]).length > 0
     ) {
-      const im = includeFields[key]
+      const im = includeFields[key];
 
       generated.include.push({
         model: models[im],
         as: key
-      })
+      });
 
-      const subKeys = Object.keys(where[key])
+      const subKeys = Object.keys(where[key]);
       subKeys.forEach(key1 => {
-        generated.where[`$${key}.${key1}$`] = where[key][key1]
-      })
+        generated.where[`$${key}.${key1}$`] = where[key][key1];
+      });
     } else {
-      generated.where[key] = where[key]
+      generated.where[key] = where[key];
     }
-  })
+  });
 
-  changeOperators(generated.where)
+  changeOperators(generated.where);
 
-  return generated
+  return generated;
 }
 
 export default modelName => ({
-  getObjects: async (root, args, { models, me }) => {
-    const { where } = args
+  getObjects: options => async (root, args, { models, me }) => {
+    checkUser(me, options);
 
-    const options = where ? generateOptions(models, where) : {}
+    const { where } = args;
 
-    return models[modelName].findAll(options)
+    const params = where ? generateOptions(models, where) : {};
+
+    return models[modelName].findAll(params);
   },
-  getObject: async (root, { id }, { models, me }) => {
+  getObject: options => async (root, { id }, { models, me }) => {
+    checkUser(me, options);
+
     return models[modelName].findOne({
       where: { id }
-    })
+    });
   }
-})
+});
